@@ -10,9 +10,9 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
-            //int[,] array = { { 2, 3, 5 }, { 7, 2, 1 } };
-            //Method(array, 5);
-            //Console.ReadKey();
+            int[,] array = { { 2, 3, 5 }, { 7, 2, 1 } };
+            Method(array, 5);
+            Console.ReadKey();
         }
 
         public static int[,] Method(int[,] array, int value)
@@ -20,9 +20,11 @@ namespace ConsoleApp2
             int[,] result = new int[array.GetLength(0), array.GetLength(1)];
             for (int i = 0; i < array.GetLength(0); i++)
             {
+                int sum = 0;
                 for (int j = 0; j < array.GetLength(1); j++)
                 {
-                    if (array[i, j] == value)
+                    sum += array[i, j];
+                    if (sum % value == 0 && array[i, j] % value == 0)
                     {
                         result[i, j] = value;
                     }
